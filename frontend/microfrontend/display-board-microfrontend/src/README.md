@@ -13,14 +13,13 @@
 1) Пользователь в начале попадает в auth-microfrontend. После авторизации попадает на main-microfrontend.
 2) profile-microfrontend и display-board-microfrontend одновременно отображены на страничке и принадлежат main-microfrontend.
 3) При добавление/удаление фотографий микрофронтенд operation-board-microfrontend асинхронно уведомляет display-board-microfrontend.
-5) Здесь я не уверен, но я не стал создавать микрофроденд foto-microfrontend(сard), думаю совокупность фотографий, а именно display-board-microfrontend, лучшее решение в данной ситуации. Если фронт будет осложняться дальше, то можно ввести foto-microfrontend как контейнер низкого уровня.
+5) Тут я не уверен, но я не стал создавать микрофроденд foto-microfrontend(сard), думаю совокупность фотографий, а именно display-board-microfrontend лучшее решение в данной ситуации. Если фронт будет осложняться дальше, то можно ввести foto-microfrontend, как контейнер низкого уровня.
 
 Структуры проекта для каждого микрофронтенда:
 2) auth-microfrontend - 8080
 /auth-microfrontend
   /src
     /components
-      InfoTooltip.js         // Информация, если вход неуспешен
       Login.js               // Компонент входа пользователя
       Register.js            // Компонент регистрации пользователя
     /styles
@@ -72,26 +71,18 @@
 4) display-board-microfrontend - 8083
   /src
     /components
-      Card.js                // Компонент, где хранится фото
-      ImagePopup.js          // Комонент для взаимодействия с фото
+      App.js                // Основной копонент 
+      CurrentUserContext.js // в main будет хранится контекст
+      Footer.js             
+      Header.js
+      Main.js               // main будет отвечать за api
+      ProtectedRoute.js     // будет отвечать за маршрутизацию
     /styles
-      card-description.css       // Стили для display-board-microfrontend
-      card_image.css
-      card.css
-      content.css
+      header-user.css       // Стили для main
+      header-user_wrapper.css
+      header.css
+      popup_label.css
+      popup.css          
     index.js                 // Точка входа микрофронтенда
   package.json               // Зависимости и скрипты микрофронтенда
   webpack.config.js 
-
-5) operation-board-microfrontend - 8084
-  /src
-    /components
-      AddPlacePopup.js          // Компонент, добаялется/удаляется картинка
-      Like.js                   // Добавление лайка
-      PopupWithForm.js          // Сохранение картинки
-    /styles
-      card_like-buttom.css   // Стили для operation-board-microfrontend
-      popup.css
-    index.js                 // Точка входа микрофронтенда
-  package.json               // Зависимости и скрипты микрофронтенда
-  webpack.config.js   
