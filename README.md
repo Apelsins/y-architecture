@@ -16,7 +16,7 @@
 5) Здесь я не уверен, но я не стал создавать микрофроденд foto-microfrontend(сard), думаю совокупность фотографий, а именно display-board-microfrontend, лучшее решение в данной ситуации. Если фронт будет осложняться дальше, то можно ввести foto-microfrontend как контейнер низкого уровня.
 
 ## Структуры проекта для каждого микрофронтенда:
-2) auth-microfrontend - 8080
+### 1) auth-microfrontend - 8080
 ```
 /auth-microfrontend
   /src
@@ -34,8 +34,8 @@
   webpack.config.js
 ```
 
- 2) 
- /profile-microfrontend - 8081
+### 2) /profile-microfrontend - 8081
+```
   /src
     /components
       EditAvatarPopup.js     // Компонент изменения аватара
@@ -51,8 +51,10 @@
     index.js                 // Точка входа микрофронтенда
   package.json               // Зависимости и скрипты микрофронтенда
   webpack.config.js 
+```
 
-3) main-microfrontend - 8082  
+### 3) main-microfrontend - 8082  
+```
   /src
     /components
       App.js                // Основной копонент 
@@ -70,8 +72,10 @@
     index.js                 // Точка входа микрофронтенда
   package.json               // Зависимости и скрипты микрофронтенда
   webpack.config.js 
+```
 
-4) display-board-microfrontend - 8083
+### 4) display-board-microfrontend - 8083
+```
   /src
     /components
       Card.js                // Компонент, где хранится фото
@@ -84,8 +88,10 @@
     index.js                 // Точка входа микрофронтенда
   package.json               // Зависимости и скрипты микрофронтенда
   webpack.config.js 
+```
 
-5) operation-board-microfrontend - 8084
+### 5) operation-board-microfrontend - 8084
+```
   /src
     /components
       AddPlacePopup.js          // Компонент, добаялется/удаляется картинка
@@ -97,3 +103,4 @@
     index.js                 // Точка входа микрофронтенда
   package.json               // Зависимости и скрипты микрофронтенда
   webpack.config.js   
+  ```
